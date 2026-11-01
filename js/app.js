@@ -112,6 +112,7 @@
     if (!state.teams.some((t) => t.id === ui.team)) ui.team = state.teams[0]?.id;
     document.querySelectorAll('.tab').forEach((b) => b.classList.toggle('active', b.dataset.tab === ui.tab));
     document.getElementById('brandSub').textContent = state.info.title;
+    document.body.classList.toggle('has-totalbar', ui.tab === 'score' && state.judges.length > 0 && state.teams.length > 0);
     if (ui.tab === 'score') renderScore();
     else if (ui.tab === 'summary') renderSummary();
     else renderSetup();

@@ -47,7 +47,15 @@ button, input, select { font: inherit; color: inherit; }
 }
 .tab.active { background: var(--surface); color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 16px 16px 120px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 16px 16px 8px; }
+
+.credit {
+  max-width: 1100px; margin: 0 auto; padding: 16px 16px 24px;
+  text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border);
+}
+.credit strong { color: var(--text); }
+/* หน้ากรอกคะแนนมีแถบคะแนนรวมติดด้านล่าง เว้นที่ไม่ให้บังส่วนท้าย */
+body.has-totalbar .credit { padding-bottom: 110px; }
 
 /* ---------- Generic ---------- */
 .card {
@@ -138,6 +146,13 @@ button, input, select { font: inherit; color: inherit; }
   .list-row.team { grid-template-columns: 32px 1fr auto; }
   .list-row.team .school { grid-column: 2 / 3; }
   .brand-sub { max-width: 90vw; }
+  .topbar { padding: 8px 12px; gap: 6px; }
+  .brand-mark { font-size: 20px; }
+  .brand-title { font-size: 14px; line-height: 1.35; }
+  .brand-sub { display: none; }
+  .tabs { width: 100%; justify-content: space-between; }
+  .tab { flex: 1; padding: 5px 8px; }
+  body.has-totalbar .credit { padding-bottom: 150px; }
 }
 
 .totalbar {
