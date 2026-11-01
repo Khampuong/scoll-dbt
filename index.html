@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ระบบกรอกคะแนนการแข่งขัน ทักษะการพัฒนานวัตกรรมเทคโนโลยีธุรกิจดิจิทัล ระดับ ปวส.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🏅</span>
+      <div>
+        <div class="brand-title">ระบบกรอกคะแนนการแข่งขัน ทักษะการพัฒนานวัตกรรมเทคโนโลยีธุรกิจดิจิทัล ระดับ ปวส.</div>
+        <div class="brand-sub" id="brandSub"></div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" data-tab="score" role="tab">กรอกคะแนน</button>
+      <button class="tab" data-tab="summary" role="tab">สรุปผล</button>
+      <button class="tab" data-tab="setup" role="tab">ตั้งค่า</button>
+    </nav>
+  </header>
+
+  <main id="app" class="container"></main>
+
+  <footer class="credit">
+    จัดทำโดย <strong>ครูภัททชฎา คำพวง</strong><br>
+    แผนกเทคโนโลยีธุรกิจดิจิทัล วิทยาลัยพณิชยการธนบุรี
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+  <script src="js/criteria.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
