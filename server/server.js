@@ -1,7 +1,5 @@
 // เซิร์ฟเวอร์ระบบกรอกคะแนน: เข้าสู่ระบบ (session cookie) + API บันทึกคะแนนลง SQLite
-const fs = require('node:fs');
 const path = require('node:path');
-const vm = require('node:vm');
 const crypto = require('node:crypto');
 const express = require('express');
 const bcrypt = require('bcryptjs');
@@ -13,9 +11,7 @@ const SESSION_DAYS = 7;
 const COOKIE = 'sid';
 
 // ใช้เกณฑ์ชุดเดียวกับหน้าเว็บ (public/js/criteria.js) เพื่อตรวจคะแนนเต็มของแต่ละข้อ
-const { CRITERIA } = vm.runInNewContext(
-  `${fs.readFileSync(path.join(PUBLIC_DIR, 'js', 'criteria.js'), 'utf8')}\n;({ CRITERIA })`,
-);
+const { CRITERIA } = require('../public/js/criteria.js');
 const ITEM_MAX = Object.fromEntries(CRITERIA.flatMap((s) => s.groups.flatMap((g) => g.items)).map((i) => [i.id, i.max]));
 
 const app = express();

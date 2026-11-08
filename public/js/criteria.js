@@ -173,3 +173,6 @@ const MEDALS = [
   { key: 'bronze', label: 'เหรียญทองแดง', min: 60, range: '60 – 69' },
   { key: 'none', label: 'เกียรติบัตรเข้าร่วม', min: 0, range: 'ต่ำกว่า 60' },
 ];
+
+// ให้เซิร์ฟเวอร์ (Node / Cloudflare Worker) ใช้เกณฑ์ชุดเดียวกัน — ในเบราว์เซอร์ไม่มี module จึงข้ามบรรทัดนี้
+if (typeof module !== 'undefined') module.exports = { CRITERIA, MEDALS };

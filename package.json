@@ -6,7 +6,9 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node --disable-warning=ExperimentalWarning server/server.js",
-    "dev": "node --disable-warning=ExperimentalWarning --watch server/server.js"
+    "dev": "node --disable-warning=ExperimentalWarning --watch server/server.js",
+    "cf:dev": "wrangler d1 migrations apply scoll-dbt --local && wrangler dev",
+    "cf:deploy": "wrangler d1 migrations apply scoll-dbt --remote && wrangler deploy"
   },
   "engines": {
     "node": ">=22.13"
@@ -14,5 +16,8 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.158.0"
   }
 }

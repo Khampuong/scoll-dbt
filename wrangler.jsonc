@@ -1,0 +1,21 @@
+{
+  // Cloudflare Worker: ระบบกรอกคะแนน (API ใน worker/index.js + หน้าเว็บใน public/ + ฐานข้อมูล D1)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "scoll-dbt",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "scoll-dbt",
+      "database_id": "4ce18a1c-edf6-4f12-9903-26c2f360b1eb",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": true }
+}

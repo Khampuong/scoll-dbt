@@ -48,7 +48,28 @@
 
 ## วิธีใช้งาน
 
-### ติดตั้งและเปิดเซิร์ฟเวอร์
+### ใช้งานออนไลน์ (Cloudflare)
+
+ระบบขึ้นไว้ที่ **https://scoll-dbt.phatthachada-k.workers.dev** (Cloudflare Workers + ฐานข้อมูล D1)
+
+- กรรมการเปิดลิงก์นี้จากมือถือ/คอมพิวเตอร์ได้ทุกที่ แล้วพิมพ์เบอร์โทรศัพท์
+- ผู้ดูแลระบบกด "เข้าระบบ Admin" ชื่อผู้ใช้ `admin` (รหัสผ่านตั้งเป็น secret `ADMIN_PASSWORD` บน Cloudflare)
+
+อัปเดตระบบหลังแก้โค้ด:
+
+```bash
+npm install
+npx wrangler login          # ครั้งแรกครั้งเดียว
+npm run cf:deploy           # สร้าง/อัปเดตตารางใน D1 แล้ว deploy
+```
+
+- ทดสอบในเครื่องก่อน deploy: สร้างไฟล์ `.dev.vars` ใส่ `ADMIN_PASSWORD=...` แล้วรัน `npm run cf:dev`
+- ตั้งรหัสผ่านผู้ดูแลระบบครั้งแรก (ใช้เฉพาะตอนที่ยังไม่มีบัญชี admin): `npx wrangler secret put ADMIN_PASSWORD`
+- สำรองฐานข้อมูล: `npx wrangler d1 export scoll-dbt --remote --output backup.sql`
+
+ไฟล์ที่เกี่ยวข้อง: `worker/index.js` (API), `migrations/` (โครงสร้างตาราง D1), `wrangler.jsonc` (ตั้งค่า Cloudflare)
+
+### ติดตั้งและเปิดเซิร์ฟเวอร์ในวงแลน (Node.js — ไม่ต้องใช้อินเทอร์เน็ต)
 
 ต้องมี **Node.js 22.13 ขึ้นไป** (ใช้ฐานข้อมูล SQLite ที่มากับ Node.js ไม่ต้องติดตั้งฐานข้อมูลแยก)
 
