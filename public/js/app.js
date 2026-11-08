@@ -625,7 +625,7 @@
     const ws = wb.addWorksheet(sheetName(`กรรมการ${idx + 1}`), { pageSetup: pageSetup(teams.length > 6) });
     ws.columns = [{ width: 75 }, { width: 11 }, ...teams.map(() => ({ width: 11 }))];
     xlHeader(ws, 'แบบบันทึกคะแนน', ncol);
-    xlText(ws, `กรรมการ: ${judge.name}`, ncol, { bold: true, align: 'left' });
+    xlText(ws, `กรรมการคนที่ ${idx + 1}: ${judge.name}`, ncol, { bold: true, align: 'left' });
     const head = xlRow(ws, ['เกณฑ์การตัดสินหรือเกณฑ์การให้คะแนน', 'คะแนนเต็ม', ...teams.map((t) => t.name)], { to: ncol, bold: true, fill: 'FFE4E4E4', leftCols: [] });
     ws.views = [{ state: 'frozen', ySplit: head.number }];
 
@@ -655,7 +655,7 @@
       ws.addRow([]);
       teams.forEach((t) => xlText(ws, `${t.name} = ${t.school || '-'}`, ncol, { align: 'left' }));
     }
-    xlSigns(ws, [{ name: judge.name, role: 'กรรมการให้คะแนน' }], ncol);
+    xlSigns(ws, [{ name: judge.name, role: `กรรมการคนที่ ${idx + 1}` }], ncol);
   }
 
   function addSummarySheet(wb) {
