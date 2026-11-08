@@ -200,3 +200,31 @@ table.grid td.incomplete { color: #a06a00; }
 td .ok { color: #1f6f5c; }
 td .warn { color: #a06a00; }
 
+
+/* ---------- Login / user ---------- */
+.user-box { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.user-box .user-name { font-weight: 600; margin-right: 4px; }
+body.logged-out .tabs { display: none; }
+.tab[hidden] { display: none; }
+.card.login { max-width: 420px; margin: 40px auto; }
+.btn.block { width: 100%; justify-content: center; }
+.login-error { color: var(--danger); font-size: 14px; min-height: 20px; margin-bottom: 8px; }
+.judge-self { font-weight: 700; font-size: 18px; color: var(--primary); }
+.banner:not(.saved):not(.draft) { background: var(--bg); border-color: var(--border); }
+.list-row.judge { grid-template-columns: 32px 1fr 1fr auto; }
+.list-row.judge.add-judge { grid-template-columns: 32px 1fr 1fr auto; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+@media (max-width: 720px) {
+  .list-row.judge, .list-row.judge.add-judge { grid-template-columns: 32px 1fr; }
+  .list-row.judge > :not(.idx) { grid-column: 2 / 3; }
+  .user-box { width: 100%; }
+}
+
+.center { text-align: center; }
+.login a { color: var(--primary); font-weight: 600; }
+.judge-found { padding: 10px 12px; border-radius: 8px; margin: -4px 0 12px; border: 1px solid; font-size: 15px; }
+.judge-found.ok { background: var(--primary-soft); border-color: #b5dccd; color: #17513f; }
+.judge-found.ok strong { font-size: 18px; }
+.judge-found.warn { background: #fff7e0; border-color: #f0d68a; color: #7a5600; }
+[hidden] { display: none !important; }
+.judge-no { display: inline-block; background: var(--primary); color: #fff; font-weight: 700; font-size: 14px; padding: 1px 10px; border-radius: 999px; margin-right: 4px; }
+.judge-found .judge-no { margin-bottom: 6px; }
